@@ -6,7 +6,10 @@ from core.models import Person, Car
 
 def matches(request):
     if request.method == "GET":
-        current_user = Person.objects.filter(id=request.GET['user_id']).first()
+        try:
+            current_user = Person.objects.filter(id=request.GET['user_id']).first()
+        except KeyError:
+            return JsonResponse({"success": "failure"}, status=400)
         cars = Car.objects.filter(free=True)
         cars_by_owner = {}
         response = []
