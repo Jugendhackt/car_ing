@@ -9,8 +9,9 @@ class Person(models.Model):
     interests = models.CharField(max_length=255)
 
 
-class Cars(models.Model):
+class Car(models.Model):
     seats = models.IntegerField()
     animals = models.BooleanField()
     brand = models.CharField(max_length=255)
     owner = models.ForeignKey(Person, on_delete=models.CASCADE)
+    free = models.BooleanField(default=True)
