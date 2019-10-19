@@ -13,7 +13,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+ 
   <!-- Custom styles for this template -->
   <link href="css/modern-business.css" rel="stylesheet">
 
@@ -64,7 +64,18 @@
       <div class="col-lg-6">
         
         <p>Hier werden deine Matches angezeigt.</p>
-       
+<label for="min_age">Alter: von</label>
+<input type="number" id="min_age" name="min_age" min="16" max="100" value="16">
+<label for="max_age">bis</label>
+<input type="number" id="max_age" name="max_age" min="16" max="100" value="100">
+
+<div class="form-check">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" id="animals" value="">Tiere: erlaubt
+  </label>
+</div>
+
+<button type="button" class="btn btn-success" onclick="newRequest()">aktualisieren</button>
       </div>
       
     </div>
@@ -122,27 +133,35 @@ Automodell: {{ car.brand }}
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
+
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <script> 
-var request = new XMLHttpRequest();
-request.open("GET","https://jhhd19.infra.labcode.de/api/matches/");
-request.addEventListener('load', function(event) {
-   if (request.status >= 200 && request.status < 300) {
-      var userObj = JSON.parse(request.responseText);
-var app = new Vue({
-  el: '#content',
-  data: { users:userObj
-  }
-})
+
+function newRequest()
+{
+	var min_age=document.getElementById("min_age").value;
+	var max_age=document.getElementById("max_age").value;
+	var animals=document.getElementById("animals").checked;
+	var request = new XMLHttpRequest();
+	request.open("GET","https://jhhd19.infra.labcode.de/api/matches/?user_id=1&min_age="+min_age+"&max_age="+max_age+"&animals="+animals);
+	request.addEventListener('load', function(event) {
+	   if (request.status >= 200 && request.status < 300) {
+	      var userObj = JSON.parse(request.responseText);
+	var app = new Vue({
+	  el: '#content',
+	  data: { users:userObj
+	  }
+	})
 
 
 
-   } else {
-      console.warn(request.statusText, request.responseText);
-   }
-});
-request.send();
-
+	   } else {
+	      console.warn(request.statusText, request.responseText);
+	   }
+	});
+	request.send();
+}
 </script>
 
 </body>
