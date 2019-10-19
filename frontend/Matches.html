@@ -73,27 +73,28 @@
     
 
     <div class="row" id="content"> 
-      <div class="col-lg-4 col-sm-6 portfolio-item">
+      <div class="col-lg-4 col-sm-6 portfolio-item" v-for="user in users">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src="img/bild4.jpg" alt=""></a>
           <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Auto</a>
-            </h4>
-            <p class="card-text">
-Sitze: {{ seats }}<br>
-Tiere: {{ animals }}<br>
-Automodell: {{ brand }}
-</p>
 <h4 class="card-title">
               <a href="#">User</a>
             </h4>
             <p class="card-text">Username: {{ name }}<br>
-Alter: {{ age }}<br>
-E-Mailadresse: {{ email }}<br>
-Wohnort: {{ address }}<br>
-Interressen: {{ interests }}
+Alter: {{ user.age }}<br>
+E-Mailadresse: {{ user.email }}<br>
+Wohnort: {{ user.address }}<br>
+Interressen: {{ user.interests }}
 </p>
+            <h4 class="card-title">
+              <a href="#">Auto</a>
+            </h4>
+            <p class="card-text" v-for="car in user.cars">
+Sitze: {{ car.seats }}<br>
+Tiere: {{ car.animals }}<br>
+Automodell: {{ car.brand }}
+</p>
+
           </div>
         </div>
       </div>
@@ -122,16 +123,26 @@ Interressen: {{ interests }}
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script>
+<script> 
+var request = new XMLHttpRequest();
+request.open("GET","https://jhhd19.infra.labcode.de/api/matches/");
+request.addEventListener('load', function(event) {
+   if (request.status >= 200 && request.status < 300) {
+      var userObj = JSON.parse(request.responseText);
 var app = new Vue({
   el: '#content',
-  data: {
-    seats: '5',
-animals: 'erlaubt',
-brand: 'Audi'
-
+  data: { users:userObj
   }
 })
+
+
+
+   } else {
+      console.warn(request.statusText, request.responseText);
+   }
+});
+request.send();
+
 </script>
 
 </body>
