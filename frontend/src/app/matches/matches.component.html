@@ -1,0 +1,64 @@
+<div class="container">
+
+  <h1 class="my-4">Matches</h1>
+  <!-- Features Section -->
+  <div class="row">
+    <div class="col-lg-6">
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Mindestalter</span>
+        </div>
+        <input type="number" name="min_age" min="16" max="100" value="16" [(ngModel)]="min_age">
+      </div>
+      <br>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Maximalalter</span>
+        </div>
+        <input type="number" name="max_age" min="16" max="100" value="100" [(ngModel)]="max_age">
+      </div>
+      <br>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" id="animals" value="" [(ngModel)]="animals">Tiere m&uuml;ssen
+          erlaubt sein
+        </label>
+      </div>
+      <button type="button" class="btn btn-success" (click)="request()" style="margin: 10px 0">Aktualisieren</button>
+    </div>
+    <br>
+
+  </div>
+  <!-- /.row -->
+  <!-- Portfolio Section -->
+
+
+  <div class="row" id="content">
+    <div class="col-lg-4 col-sm-6 portfolio-item" *ngFor="let user of users">
+      <div class="card h-100">
+        <a href="#"><img class="card-img-top" src="assets/img/bild4.jpg" alt=""></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#">Benutzer</a>
+          </h4>
+          <p class="card-text">Username: {{ user.name }}<br>
+            Alter: {{ user.age }}<br>
+            E-Mail Adresse: {{ user.email }}<br>
+            Wohnort: {{ user.address }}<br>
+            Interessen: {{ user.interests }}
+          </p>
+          <h4 class="card-title">
+            <a href="#">Auto</a>
+          </h4>
+          <p class="card-text" *ngFor="let car of user.cars">
+            Sitze: {{ car.seats }}<br>
+            Tiere: {{ car.animals }}<br>
+            Automodell: {{ car.brand }}
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
