@@ -74,3 +74,33 @@ def matches(request):
         })
 
     return JsonResponse(response, safe=False)
+
+
+def registeruser(request):
+    try:
+        username = request.GET['username']
+        email = request.GET['email']
+        interests = request.GET['interests']
+        age = int(request.GET['age'])
+        address = request.GET['address']
+        Person.objects.update_or_create(name=username, email=email, interests=interests, age=age, address=address)
+        return JsonResponse({'success': True})
+    except KeyError:
+        print('error')
+        return JsonResponse({'success': False})
+
+
+def registercar(request):
+    try:
+        seats = request.GET['seats']
+        brand = request.GET['brand']
+        owner = Person.objects.filter(id=request.GET['owner']).first()
+        if request.GET['animals'] == "true":
+            animals = True
+        else:
+            animals = False
+        Car.objects.update_or_create(seats=seats, animal=animals, brand=brand, owner=owner)
+        return JsonResponse({'success': True})
+    except KeyError:
+        print('error')
+        return JsonResponse({'success': False})
