@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Caring</title> 
+  <title>Caring</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@
   <!-- Custom styles for this template -->
   <link href="css/modern-business.css" rel="stylesheet">
 
-
+</head>
 
 <body>
 
@@ -83,75 +83,60 @@
   <!-- Page Content -->
   <div class="container">
 
-    <h1 class="my-4">Welcome to Caring</h1>
+    <h1 class="my-4">Registrieren</h1>
  <!-- Features Section -->
+<form action="https://jhhd19.infra.labcode.de/api/registeruser/" 
+	method="GET"> 
     <div class="row">
       <div class="col-lg-6">
-        
-        <p>Hast du das Gefühl, dass es zu viele Autos gibt, die einfach nur rumstehen und keiner benutzt und dadurch viele Parkplätze belegen? Hast du selber kein Auto oder Führerschein? Willst du weniger Co<sub>2</sub> ausstoßen und dadurch das Klima verbessern? Oder Hast du Kinder oder Haustiere, aber kein Auto? Durch unser Matching Programm findest du ganz leicht Leute mit Autos die zu deinen Interessen passen.<br>
-Denn wir, von Caring, wollen das Klima verbessern, indem wir dir die Möglichkeit geben wollen, dein Auto mit anderen zu teilen.<br>
-Werde Teil der Caring-community, so hasst du immer...<br>
-- eine Mitfahrgelegenheit...<br>
-- Kontakt zu neuen menschen in deiner Umgebung...<br>
-- ein Auto, wenn du eins brauchst...<br>
-... und tust etwas für deine Umwelt.</p>
-       
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Name</span>
+					</div>
+					<input name="username" type="text" class="form-group">
       </div>
-      
+<br>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">E-mail</span>
+				</div>
+				<input name="email" type="text" class="form-group">
+      </div>
+<br>
+			<div class="input-group">
+				<div class="input-group-prepend">
+						<span class="input-group-text">Alter</span>
+					</div>
+				<input name="age" type="text" class="form-group">
+			</div>
+<br>
+			<div class="input-group">
+				<div class="input-group-prepend">
+						<span class="input-group-text">Wohnort</span>
+					</div>
+					<input name="adress" type="text" class="form-group">
+      </div>
+<br>
+      <div class="input-group">
+				<div class="input-group-prepend">
+						<span class="input-group-text">Interessen</span>
+					</div>
+					<input name="interests" type="text" class="form-group">
+      </div>
+<br>
+				<div class="form-check">
+					<label class="form-check-label">
+						<input type="checkbox" class="form-check-input" 
+							value="">Tiere: erlaubt
+					</label>
+<p> <br>
+				</div>
+			<button type="submit" class="btn btn-success">Registrieren</button>
     </div>
+<p> <br>
+</form>
     <!-- /.row -->
-    <!-- Portfolio Section -->
-    <h2>Vorteile von Caring</h2>
-
-    <div class="row">
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="img/bild4.jpg" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Tiere und Kinder</a>
-            </h4>
-            <p class="card-text">Durch unser Matching System können die Autobesitzer angeben ob Kinder oder Tiere mitfahren dürfen.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="img/bild3.jpg" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Weniger Stau</a>
-            </h4>
-            <p class="card-text">Wenn viele User sich ein Auto teilen gibt es weniger Stau in den Innenstädten.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="img/bild1.jpg" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Weniger Verkehr auf den Autobahnen</a>
-            </h4>
-            <p class="card-text">Wenn sich mehrere User ein Auto teilen, dann gibt es weniger Verkehr auf den Autobahnen. So, dass es für jeden angenehmer ist.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="img/bild5.jpg" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Reduzierung von CO²</a>
-            </h4>
-            <p class="card-text">Umso mehr User diese Application benutzen, desto weniger CO<sub>2</sub> ist in der Atmosphäre.  </p>
-          </div>
-        </div>
-      </div>
-      
-      
-    </div>
-    <!-- /.row -->
+   
 
     
 
